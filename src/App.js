@@ -119,7 +119,11 @@ function App() {
 }
 
 
-//Component
+/*
+class 로 Componnet를 만들 수 있음(자바처럼 extends 사용하고)
+하지만 새로운 공식문서에서 새로운 방법인 function을 사용해서 만드는 것을 권장함
+*/
+//Component 
 function Model(props) {//전달받은 props가 여기에 전달되있음
   return (
     <div className="model">
