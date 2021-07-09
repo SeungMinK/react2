@@ -20,7 +20,8 @@ import './App.css';
     14. input 태그는 항상 꼭 닫아야함!!
     15. console.log(e.target.value) 입력된 값 콘솔에 출력하기
     16. map의 경우 key 값을 지정해줘야 warning이 안뜸
-    17. array 맨 앞에 자료를 추가하는 문법 array.unshift
+    17. array 맨 앞에 자료를 추가하는 문법 "array.unshift"
+    18. setState()를 통해 원하는 state 요소만 변경 할 수 있음(class 문법에서 사용)
     */
 
 
