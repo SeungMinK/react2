@@ -33,6 +33,28 @@ body{
   padding-right: 20px;
 
 }
+.pulish{
+
+  margin-top:30px;
+  margin-bottom: 30px;
+
+}
+
+.pulish input{
+
+  padding:10px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 80%;
+  border: 1px solid grey;
+
+}
+
+.pulish button{
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

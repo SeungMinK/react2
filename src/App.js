@@ -6,7 +6,7 @@ import './App.css';
     ===================Summary========================
     1. 데이터 바인딩 핵심 "{}"
     2. Style 직접 지정시에도 "{}"" 사용해야함  
-    3. "..." deepcCopy 방법임, = 으로 카피할경우 참조변수가 생성됨(Array,Object)
+    3. "..." deepcCopy 방법임, = 으로 카피할경우 참조변수가 생성됨(Array,Object),...으로 할시 독립적인 카피
     4. state 값 변경은 변경함수를 사용해야함(state에 직접 접근X)
     5. deepCopy로 값을 복사해서 수정 후, 변경함수에 적용하는 방법이 있음
     6. {}안에는 변수,함수를 쓸 수 있음
@@ -20,6 +20,7 @@ import './App.css';
     14. input 태그는 항상 꼭 닫아야함!!
     15. console.log(e.target.value) 입력된 값 콘솔에 출력하기
     16. map의 경우 key 값을 지정해줘야 warning이 안뜸
+    17. array 맨 앞에 자료를 추가하는 문법 array.unshift
     */
 
 
@@ -84,6 +85,16 @@ function App() {
           }
           )
         }
+
+        <div className="publish">
+        <input onChange={(e)=>{ inputValueChange(e.target.value)}}/>
+          <button onClick={()=>{
+            var temp = [...title]//...을 사용해서 값만 복사함, 그냥 = 으로만 복사할 경우 참조변수 생성해서 메모리 공유됨
+            temp.unshift(inputValue)
+
+            titleChange(temp)
+            }}>저장</button>
+        </div>
       </div>
   
       <div>
@@ -100,8 +111,7 @@ function App() {
         : null // 텅빈 html 보여줌, Js 관습
        
     }
-    {inputValue}
-    <input onChange={(e)=>{ inputValueChange(e.target.value)}}/>
+  
     </div>
   
 
