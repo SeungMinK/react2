@@ -15,6 +15,7 @@ import './App.css';
     10. es6 버전부터 새로 생긴 let과 const임. 불안정한 var보다 let과 const 사용을 권장함
     11. array내의 모든 데이터에 똑같은 작업을 시켜주고싶을때 .map()을 사용함, 유사 반복문
     12. Componet의 경우 명명규칙은 대문자로 시작해야함
+    13. Props를 사용하여, State 넘기기(파라미터 개념)
     */
 
 
@@ -67,7 +68,7 @@ function App() {
           title.map(function (text) {
             return (
               <div className="list">
-                <h4>{text}<span onClick={() => { likeChange(like + 1) }}>👍{like[0]}</span></h4>
+                <h4>{text}<span onClick={() => { likeChange(like[0]+1 )}}>👍{like}</span></h4>
                 <h3>{contents}</h3>
                 <p>6월 23일</p>
                 <hr />
@@ -83,7 +84,7 @@ function App() {
       </div>
       {
         model === true
-          ? <Model />
+          ? <Model title={title}/>//state 보내기
           : null // 텅빈 html 보여줌, Js 관습
       }
     </div>
@@ -93,10 +94,10 @@ function App() {
 }
 
 //Component
-function Model() {
+function Model(props) {//전달받은 props가 여기에 전달되있음
   return (
     <div className="model">
-      <h2>제목</h2>
+      <h2>{props.title[1]}</h2>
       <p>날짜</p>
       <p>상세내용</p>
     </div>
