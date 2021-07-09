@@ -17,6 +17,9 @@ import './App.css';
     11. array내의 모든 데이터에 똑같은 작업을 시켜주고싶을때 .map()을 사용함, 유사 반복문
     12. Componet의 경우 명명규칙은 대문자로 시작해야함
     13. Props를 사용하여, State 넘기기(파라미터 개념)
+    14. input 태그는 항상 꼭 닫아야함!!
+    15. console.log(e.target.value) 입력된 값 콘솔에 출력하기
+    16. map의 경우 key 값을 지정해줘야 warning이 안뜸
     */
 
 
@@ -31,7 +34,8 @@ function App() {
   let [gender, genderChange] = useState('male');
   let [model, modelChange] = useState(false);//UI 온오프 스위치
   let [state, stateChange] = useState(['OFF']);//버튼 상태 표시
-  let [clickTitle,clickTitleChange] = useState(0); 
+  let [clickTitle,clickTitleChange] = useState(0);
+  let [inputValue,inputValueChange] = useState('');
 
 
   function changeTitleGender() {
@@ -70,7 +74,7 @@ function App() {
         {
           title.map(function (text,i) {//map에서 두번째 파라미터는 반복횟수를 가르키는 변수가 됨
             return (
-              <div className="list">
+              <div className="list" key={i}>
                 <h4 onClick= { () => {  clickTitleChange(i)}} >{text}<span onClick={() => { likeChange(like[0] + 1) }}>👍{like}</span></h4>
                 <h3>{contents}</h3>
                 <p>6월 23일</p>
@@ -96,6 +100,8 @@ function App() {
         : null // 텅빈 html 보여줌, Js 관습
        
     }
+    {inputValue}
+    <input onChange={(e)=>{ inputValueChange(e.target.value)}}/>
     </div>
   
 
